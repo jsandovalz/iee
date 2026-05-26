@@ -20,4 +20,4 @@ EXPOSE 1337
 
 RUN pnpm run build
 
-CMD ["pnpm", "run", "start"]
+CMD ["pnpm", "run", "start", "--", "--debug"]
