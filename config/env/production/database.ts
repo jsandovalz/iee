@@ -1,20 +1,10 @@
-const config = ({ env }) => {
-  const dbUrl = env('DATABASE_URL');
-
-  if (!dbUrl) {
-    throw new Error('DATABASE_URL environment variable is required in production');
-  }
-
-  return {
+export default ({ env }) => ({
+  connection: {
+    client: 'postgres',
     connection: {
-      client: 'postgres',
-      connection: {
-        connectionString: dbUrl,
-        ssl: { rejectUnauthorized: false },
-      },
-      pool: { min: 2, max: 10 },
+      connectionString: env('DATABASE_URL'),
+      ssl: env('DATABASE_SSL', 'true') === 'true' ? { rejectUnauthorized: false } : false,
     },
-  };
-};
-
-export default config;
+    pool: { min: 2, max: 10 },
+  },
+});
