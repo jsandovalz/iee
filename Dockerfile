@@ -6,16 +6,17 @@ RUN apk add --no-cache python3 make g++ libc6-compat
 
 RUN npm install -g pnpm
 
-COPY package.json pnpm-lock.yaml ./
-RUN pnpm install --no-frozen-lockfile --unsafe-perm
-
-COPY . .
-
+# Mover NODE_ENV ANTES del install
 ENV NODE_ENV=production
 ENV PORT=1337
 ENV HOST=0.0.0.0
 
-# Variables necesarias para el build de Strapi
+COPY package.json pnpm-lock.yaml ./
+# Agregar --prod para excluir devDependencies
+RUN pnpm install --no-frozen-lockfile --unsafe-perm --prod
+
+COPY . .
+
 ARG APP_KEYS
 ARG API_TOKEN_SALT
 ARG ADMIN_JWT_SECRET
