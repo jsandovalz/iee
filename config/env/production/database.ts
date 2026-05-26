@@ -1,14 +1,8 @@
 const config = ({ env }) => {
-  const dbUrl = env('DATABASE_URL', '');
+  const dbUrl = env('DATABASE_URL');
 
   if (!dbUrl) {
-    return {
-      connection: {
-        client: 'sqlite',
-        connection: { filename: '.tmp/build.db' },
-        useNullAsDefault: true,
-      },
-    };
+    throw new Error('DATABASE_URL environment variable is required in production');
   }
 
   return {

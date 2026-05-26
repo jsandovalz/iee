@@ -13,7 +13,8 @@ ENV HOST=0.0.0.0
 
 COPY package.json pnpm-lock.yaml ./
 # Agregar --prod para excluir devDependencies
-RUN pnpm install --no-frozen-lockfile --unsafe-perm --prod
+RUN pnpm install --no-frozen-lockfile --unsafe-perm --prod && \
+    rm -rf /app/node_modules/.pnpm/better-sqlite3*
 
 COPY . .
 
