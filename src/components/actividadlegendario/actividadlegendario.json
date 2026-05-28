@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_actividadlegendario_actividadlegendario",
+  "info": {
+    "displayName": "Actividades Legendarios"
+  },
+  "attributes": {
+    "video": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "videos"
+      ]
+    },
+    "foto": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "rpm": {
+      "type": "richtext"
+    }
+  }
+}

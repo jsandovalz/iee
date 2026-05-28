@@ -1,0 +1,22 @@
+{
+  "kind": "singleType",
+  "collectionName": "legendario",
+  "info": {
+    "singularName": "legendario",
+    "pluralName": "legendarios",
+    "displayName": "Legendarios Bolivia"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "actividades": {
+      "type": "component",
+      "repeatable": true,
+      "component": "actividadlegendario.actividadlegendario"
+    }
+  }
+}
