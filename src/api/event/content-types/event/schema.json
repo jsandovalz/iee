@@ -73,9 +73,9 @@
     },
     "categoria": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "manyToOne",
       "target": "api::categoria.categoria",
-      "mappedBy": "event"
+      "inversedBy": "events"
     },
     "publicar_facebook": {
       "type": "boolean",

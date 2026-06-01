@@ -34,9 +34,9 @@
     },
     "event": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::event.event",
-      "inversedBy": "categoria"
+      "mappedBy": "categoria"
     }
   }
 }
